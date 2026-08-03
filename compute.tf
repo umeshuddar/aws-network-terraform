@@ -18,8 +18,8 @@ resource "aws_instance" "app" {
   instance_type          = var.instance_type
   subnet_id              = aws_subnet.private[0].id
   vpc_security_group_ids = [aws_security_group.app.id]
-  key_name                = var.key_pair_name != "" ? var.key_pair_name : null
-  iam_instance_profile    = aws_iam_instance_profile.app_instance_profile.name
+  key_name               = var.key_pair_name != "" ? var.key_pair_name : null
+  iam_instance_profile   = aws_iam_instance_profile.app_instance_profile.name
 
   tags = {
     Name = "${var.project_name}-app-private"
